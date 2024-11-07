@@ -1,0 +1,115 @@
+body{
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#to-doEl{
+    
+    padding: 14px;
+    outline: none;
+    height:19.8px ;
+    border-bottom: 1px solid #0061ff;
+    border-top: 1px solid #0061ff;
+    border-left: 1px solid #0061ff;
+    border-top-left-radius:8px ;
+    border-bottom-left-radius:8px ;
+    width: 50%;
+    font-weight: 650;
+    outline: none;
+    border-right:none ;
+}
+#buttonAdd{
+    padding:  15px;
+    border-top-right-radius:7px ;
+   border-bottom-right-radius: 7px;
+     border: 1px solid #0061ff ;
+    font-size: 15px;
+    background-color: #0061ff;
+    color: #fff;
+    cursor: pointer;
+    
+
+}
+li{
+    list-style: none; 
+     border-radius: 5px;
+     outline: none;
+     border: 1px solid;
+     padding: 7px;
+      text-align: left;
+       margin-bottom: 3px; 
+       display: flex;
+        justify-content: space-between;
+         align-items: center;
+    margin-bottom: 3px;
+    font-size:20px ;
+    
+
+    
+}#checked{
+    width: 20px; height: 20px;
+    background-color: #1787de;
+}
+
+
+
+#remove{
+    padding: 4px;
+    font-size: 14px;
+    float:inline-end;
+    background-color: #0466c8;
+    border: none;
+    outline: none;
+    width: 20px;
+    border-radius:  5px  ;
+    color: #fff;
+   
+    cursor: pointer;
+    
+
+}
+#mydiv{
+  display:flex;
+  justify-content:space-around;
+  align-items: center;
+  margin: 20px 20px   20px;
+    width: 30% ;
+    border: 1px solid #0fa3b1;
+    height:50% ;
+    border-radius: 10px;
+    background-color: #0fa3b1;
+}
+.update{
+    color: #fff;
+    border:1px solid;
+    padding: 3px;
+    width: 75px;
+    border-top-right-radius:15px ;
+    border-bottom-left-radius: 15px;
+
+}
+p{
+    color: #fff;
+}
+#div-remove{
+
+    border: none;
+    background-color: #b5e2fa;
+    color: #0c0c0c;
+    padding: 8px;
+    border-top-right-radius:5px ;
+    border-bottom-left-radius: 5px;
+    margin-left: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+ img{
+    margin-left: 3px;
+ }
+#head{
+    color: #0466c8;
+    display:flex;
+  justify-content:center;
+  align-items: center;
+}
