@@ -1,80 +1,92 @@
-let toDo = []
- 
- 
+let toDo = [];
 
- function addTask(){
-   // value getting from input field and pushing in empty array
-    let inputValue = document.getElementById("to-doEl").value;
-    toDo.push(inputValue);
-   //  clearing the input after task added
-    document.getElementById("to-doEl").value = "";
-    console.log(toDo)
 
-    function display(){
-      // grabing th ul element and store in ul name  variable
-     let ul = document.getElementById("list-toDo");
-     ul.innerHTML ="";
-      // for foreach loop iterates the each array and create a list evrey iteratuion
-     toDo.forEach((item, index) => {
-        let checkButton = document.createElement("input");
-           checkButton.type = "checkbox";
-           checkButton.id = "checked";
-           checkButton.onclick = taskCompleted;
+const leadsFromLocalStorage = JSON.parse(localStorage.getItem("toDo"));
 
-           function taskCompleted(){
-
-            checkButton.remove()
-            let taskOver = document.createElement("div")
-            taskOver.textContent ="Complited"
-            li.prepend(taskOver)
-            if(checkButton.checked){
-                 li.style.backgroundColor= "#0061ff"
-                 li.style.color ="#ffff"
-                button.style.backgroundColor ="#f6fff8"
-                button.style.color= "#001427"
-            }
-         }
-       let buttonRemove = document.createElement("button");
-        buttonRemove.id = "remove";
-        buttonRemove.textContent ="X"
-        buttonRemove.onclick = removeTask;
-
-        let  li = document.createElement("li");
-         li.id = "task-list"
-         li.textContent = `  ${item}`
-         ul.appendChild(li)
-         li.append(buttonRemove)
-         li.prepend(checkButton)
-         
-
-        
-
-         function removeTask(){
-            console.log("removed")
-            toDo.pop()
-            li.remove();
-            console.log(toDo)
-          
-           
-        }
-        
-     });
-    }
-   //  display function use the dom element for list 
+if(leadsFromLocalStorage){
+   toDo=leadsFromLocalStorage
     display()
+};
+function addTask() {
+  // Get value from input field and push it into the array
+  let inputValue = document.getElementById("to-doEl").value;
   
- }
+  if (inputValue) {
+    toDo.push({ task: inputValue, completed: false });
+    localStorage.setItem("toDo",JSON.stringify(toDo))
+  }
 
-  let div = document.getElementById("mydiv")
- function divRemove(){
-    div.remove()
- }
- 
 
- 
+  // Clear the input field after adding the task
+  document.getElementById("to-doEl").value = "";
+  console.log(toDo);
 
- 
- 
+  // Display the updated list
+  display();
+}
+
+function display() {
+  // Get the ul element and clear its content
+  let ul = document.getElementById("list-toDo");
+  ul.innerHTML = "";
+
+  // Iterate over the toDo array and create list items with buttons
+  toDo.forEach((item, index) => {
+    // Create list item
+    let li = document.createElement("li");
+    li.id = "task-list";
+    li.textContent = `  ${item.task}`;
+
+    // Create check button
+    let checkButton = document.createElement("input");
+    checkButton.type = "checkbox";
+    checkButton.id = "checked";
+    checkButton.checked = item.completed;
+    checkButton.onclick = () => taskCompleted(index);
+
+    // Create remove button
+    let buttonRemove = document.createElement("button");
+    buttonRemove.id = "remove";
+    buttonRemove.textContent = "X";
+    buttonRemove.onclick = () => removeTask(index);
+
+    // Append buttons to list item
+    li.prepend(checkButton);
+    li.append(buttonRemove);
+    ul.appendChild(li);
+
+    // Style completed tasks
+    if (item.completed) {
+       checkButton.remove()
+       const taskOver = document.createElement("div")
+        taskOver.textContent = "Complited"
+        li.prepend(taskOver)
+      li.style.backgroundColor = "#0061ff";
+      li.style.color = "#ffff";
+    }
+  });
+}
+
+function taskCompleted(index) {
+  toDo[index].completed = !toDo[index].completed; // Toggle the completed status
+  localStorage.setItem("toDo", JSON.stringify(toDo));
+  display(); // Re-render the list
+}
+
+function removeTask(index) {
+   localStorage.clear();
+   toDo = []
+
+  toDo.splice(index, 1); // Remove the specific task from the array
+  localStorage.setItem("toDo", JSON.stringify(toDo));
+  display(); // Re-render the list
+  
+}
+
+let div = document.getElementById("mydiv");
+function divRemove() {
+  div.remove();
+}
 
 
 
