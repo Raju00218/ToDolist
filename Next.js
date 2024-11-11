@@ -74,7 +74,7 @@ function taskCompleted(index) {
 }
 
 function removeTask(index) {
-  toDo.splice(index, 1)
+
    toDo = []
 
   toDo.splice(index, 1); // Remove the specific task from the array
