@@ -52,8 +52,8 @@ function display() {
 
     // Append buttons to list item
     li.prepend(checkButton);
-    li.append(buttonRemove);
-    ul.appendChild(li);
+     li.append(buttonRemove);
+      ul.appendChild(li);
 
     // Style completed tasks
     if (item.completed) {
@@ -74,7 +74,7 @@ function taskCompleted(index) {
 }
 
 function removeTask(index) {
-   localStorage.clear();
+  toDo.splice(index, 1)
    toDo = []
 
   toDo.splice(index, 1); // Remove the specific task from the array
