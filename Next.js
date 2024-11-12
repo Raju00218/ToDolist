@@ -48,7 +48,7 @@ function display() {
     let buttonRemove = document.createElement("button");
     buttonRemove.id = "remove";
     buttonRemove.textContent = "X";
-    buttonRemove.onclick = () => removeTask(index);
+    buttonRemove.onclick = () => removeTask(index,1);
 
     // Append buttons to list item
     li.prepend(checkButton);
@@ -73,11 +73,11 @@ function taskCompleted(index) {
   display(); // Re-render the list
 }
 
-function removeTask(index) {
+function removeTask(index ) {
 
    toDo = []
-
-  toDo.splice(index, 1); // Remove the specific task from the array
+    
+  toDo.pop(index, 1); // Remove the specific task from the array
   localStorage.setItem("toDo", JSON.stringify(toDo));
   display(); // Re-render the list
   
