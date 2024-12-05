@@ -75,7 +75,7 @@ function taskCompleted(index) {
 
 function removeTask(index ) {
 
-   toDo = []
+   // toDo = []
     
   toDo.pop(index, 1); // Remove the specific task from the array
   localStorage.setItem("toDo", JSON.stringify(toDo));
