@@ -77,7 +77,7 @@ function removeTask(index ) {
 
    // toDo = []
     
-  toDo.pop(index, 1); // Remove the specific task from the array
+  toDo.splice(index, 1); // Remove the specific task from the array
   localStorage.setItem("toDo", JSON.stringify(toDo));
   display(); // Re-render the list
   
