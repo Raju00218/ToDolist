@@ -59,7 +59,7 @@ function display() {
     if (item.completed) {
        checkButton.remove()
        const taskOver = document.createElement("div")
-        taskOver.textContent = "Complited"
+        taskOver.textContent = "Completed"
         li.prepend(taskOver)
       li.style.backgroundColor = "#0061ff";
       li.style.color = "#ffff";
