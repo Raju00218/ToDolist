@@ -51,7 +51,7 @@ function display() {
     buttonRemove.onclick = () => removeTask(index,1);
 
     // Append buttons to list item
-    li.prepend(checkButton);
+    li.appendClild(checkButton);
      li.append(buttonRemove);
       ul.appendChild(li);
 
