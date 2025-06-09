@@ -40,11 +40,11 @@ li{
      outline: none;
      border: 1px solid #90e0ef;
      padding: 7px;
-      /* text-align: left; */
+      text-align: left;
        margin-bottom: 3px; 
-       display: flex;
+/*        display: flex;
         justify-content: space-between;
-         align-items: center;
+         align-items: center; */
     margin-bottom: 3px;
     font-size:20px ;
     
